@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Tracker</title>
+    {% load static %} <!-- Dodano załadowanie tagów statycznych -->
+    <link rel="stylesheet" href="{% static 'training/styles.css' %}">
+</head>
+<body>
+    <h1>Training Tracker</h1>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <label for="sport">Sport:</label>
+        <select name="sport" id="sport" required>
+            <option value="running">Running</option>
+            <option value="swimming">Swimming</option>
+            <option value="pullups">Pull-ups</option>
+            <option value="cycling">Cycling</option>
+            <option value="pushups">Push-ups</option>
+            <option value="weights">Weights</option>
+        </select>
+
+        <div id="details">
+            <label for="time">Time (minutes):</label>
+            <input type="number" name="time" id="time">
+
+            <label for="distance">Distance (km):</label>
+            <input type="number" name="distance" id="distance">
+
+            <label for="pool_lengths">Pool Lengths:</label>
+            <input type="number" name="pool_lengths" id="pool_lengths">
+
+            <label for="sets">Sets:</label>
+            <input type="number" name="sets" id="sets">
+
+            <label for="reps_per_set">Reps per Set:</label>
+            <input type="number" name="reps_per_set" id="reps_per_set">
+
+            <label for="exercise_type">Exercise Type:</label>
+            <input type="text" name="exercise_type" id="exercise_type">
+        </div>
+
+        <button type="submit">Add Exercise</button>
+    </form>
+    <script src="{% static 'training/scripts.js' %}"></script>
+</body>
+</html>
